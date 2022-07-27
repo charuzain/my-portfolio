@@ -1,3 +1,20 @@
-body{
-  background: #000;
+/* create variables */
+
+:root{
+  --primary:rgb(29, 122, 15);
+  --dark:black;
+  --light:#898989;
+  --pure:white;
+  --bg-color:#f2f2f2;
+}
+
+/* Export Images & Icons */
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header{
+  background: var(--dark)
 }

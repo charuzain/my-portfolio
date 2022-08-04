@@ -8,13 +8,48 @@
   --bg-color:#f2f2f2;
 }
 
-/* Export Images & Icons */
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
-header{
-  background: var(--dark)
+.header-container{
+  background: var(--dark);
+  padding: 10px;
+}
+.logo{
+  color:var(--primary);
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+nav{
+  max-width:1200px;
+  padding:15px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav .links a{
+  color:var(--pure);
+  text-decoration: none;
+  padding: 10px;
+}
+
+.left-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 0.5;
+}
+
+.rightNav button{
+  background-color: var(--primary);
+  padding: 0.8rem 3rem;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.2rem;
 }

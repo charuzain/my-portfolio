@@ -1,7 +1,7 @@
 /* create variables */
 
 :root{
-  --primary:rgb(29, 122, 15);
+  --primary:rgb(25, 159, 5);
   --dark:black;
   --light:#898989;
   --pure:white;
@@ -35,7 +35,9 @@ nav{
 nav .links a{
   color:var(--pure);
   text-decoration: none;
-  padding: 10px;
+  /* padding: 10px; */
+  margin: 1rem;
+  font-size: 1.5rem;
 }
 
 .left-nav{
@@ -47,9 +49,24 @@ nav .links a{
 
 .rightNav button{
   background-color: var(--primary);
-  padding: 0.8rem 3rem;
+  padding: 0.8rem 2rem;
   border: none;
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 0.2rem;
+  border-radius: 3px;
+}
+
+nav .links a:hover{
+  color: var(--primary)
+}
+
+img {
+  width: 700px;
+  
+}
+
+section{
+  display: flex;
+  background-color:black;
 }

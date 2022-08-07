@@ -14,7 +14,7 @@ Typewriter.prototype.type = function() {
   //  Get current index of the word
   const current = this.wordIndex;
 
-  // Text of the current word
+  // full text of the current word
 
   const currentWord = this.words[current];
   console.log(currentWord);
@@ -33,10 +33,34 @@ Typewriter.prototype.type = function() {
   // ADD
   this.textElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
+  // add typing speed
+
+  let typeSpeed = 200;
+
+  if (this.isDeleting) {
+    typeSpeed /= 2;
+  }
+
+  // if word is fully typed , delete the word and type the next word
+  if (!this.isDeleting && this.txt === currentWord) {
+    typeSpeed = this.wait;
+    this.isDeleting = true;
+  }
+  if (this.txt === '' && this.isDeleting) {
+    this.isDeleting = false;
+    this.wordIndex++;
+  }
+  if (this.wordIndex === this.words.length) {
+    this.wordIndex = 0;
+  }
+
+
+
+
 
   setTimeout(()=>{
     this.type();
-  },500);
+  },typeSpeed);
   
 };
 

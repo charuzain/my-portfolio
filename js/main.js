@@ -1,69 +1,60 @@
-const Typewriter = function(textElement,words,wait = 3000) {
-  this.textElement = textElement;
-  this.words = words;
-  this.txt = '';
-  this.wordIndex = 0;
-  this.wait = wait;
-  this.isDeleting = false; // represent the state
-  this.type();
-};
 
-//Type Method
-Typewriter.prototype.type = function() {
-
-  //  Get current index of the word
-  const current = this.wordIndex;
-
-  // full text of the current word
-
-  const currentWord = this.words[current];
-  console.log(currentWord);
-
-  // Check if state is deleting
-  if (this.isDeleting) {
-    // Remove more characters
-    this.txt = currentWord.substring(0,this.txt.length - 1);
-
-
-  } else {
-    // Add characters
-    this.txt = currentWord.substring(0,this.txt.length + 1);
-  }
-
-  // ADD
-  this.textElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-  // add typing speed
-
-  let typeSpeed = 200;
-
-  if (this.isDeleting) {
-    typeSpeed /= 2;
-  }
-
-  // if word is fully typed , delete the word and type the next word
-  if (!this.isDeleting && this.txt === currentWord) {
-    typeSpeed = this.wait;
-    this.isDeleting = true;
-  }
-  if (this.txt === '' && this.isDeleting) {
-    this.isDeleting = false;
-    this.wordIndex++;
-  }
-  if (this.wordIndex === this.words.length) {
+class Typewriter {
+  constructor(textElement,words,wait = 3000) {
+    this.textElement = textElement;
+    this.words = words;
+    this.txt = '';
     this.wordIndex = 0;
+    this.wait = wait;
+    this.isDeleting = false;
+    this.type();
   }
 
+  type() {
 
+    //  Get current index of the word
+    const current = this.wordIndex;
 
+    // full text of the current word
+    const currentWord = this.words[current];
 
+    // Check if state is deleting
+    if (this.isDeleting) {
+    // Remove more characters
+      this.txt = currentWord.substring(0,this.txt.length - 1);
+    } else {
+    // Add characters
+      this.txt = currentWord.substring(0,this.txt.length + 1);
+    }
 
-  setTimeout(()=>{
-    this.type();
-  },typeSpeed);
   
-};
+    this.textElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
+    // add typing speed
+    let typeSpeed = 100;
+    if (this.isDeleting) {
+      typeSpeed /= 2;
+    }
+
+    // If word is fully typed , delete the word and type the next word
+    if (!this.isDeleting && this.txt === currentWord) {
+      typeSpeed = this.wait;
+      this.isDeleting = true;
+    }
+    if (this.txt === '' && this.isDeleting) {
+      typeSpeed = this.wait;
+      this.isDeleting = false;
+      this.wordIndex++;
+    }
+    if (this.wordIndex === this.words.length) {
+      this.wordIndex = 0;
+    }
+
+    setTimeout(()=>{
+      this.type();
+    },typeSpeed);
+  }
+}
 
 document.addEventListener('DOMContentLoaded',()=>{
   const textElement = document.querySelector(".data-type");

@@ -16,6 +16,7 @@
 
 header {
   background: var(--dark);
+  clip-path: polygon(0 0 , 100% 0 , 100% 90% , 70% 85% , 0 100%);
 }
 
 .nav-container {
@@ -66,42 +67,50 @@ nav .links a:hover {
   color: var(--primary);
 }
 
-/* img {
-  width: 700px;
-  
-} */
-
 .hero {
   color: var(--pure);
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* border: 3px solid red; */
   /* justify-content: flex-end */
 }
 
 .hero-image img {
   width: 700px;
-}
+  flex: 1;
+  /* border: 3px solid red; */
+  justify-content: center;
+} 
+
+.hero-content{
+  flex: 1;
+  /* border: 3px solid red; */
+
+padding-left: 4rem
+
+} 
+ 
 .hero-content h3 {
   font-weight: lighter;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
 }
 .hero-content h2 {
   font-weight: lighter;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   font-size: 3rem;
   letter-spacing: 0.2rem;
   color: var(--primary);
 }
 .hero-content h1 {
   font-weight: lighter;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   font-size: 3rem;
   letter-spacing: 0.2rem;
-}
-.hero-content button {
+} 
+ .hero-content button {
   background: transparent;
   color: var(--primary);
   border: none;
@@ -112,6 +121,11 @@ nav .links a:hover {
   cursor: pointer;
   letter-spacing: 0.2rem;
   border-radius: 3px;
+}
+
+.hero-content button:hover {
+  background-color: var(--primary);
+  color: var(--dark);
 }
 
 .data-type > .txt {

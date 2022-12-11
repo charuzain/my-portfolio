@@ -164,8 +164,23 @@ section {
 }
 .about-me{
   margin-right: 3rem;
-  border: 5px solid green;
+  /* border: 5px solid green; */
    height: 550px;
    display: flex;
    flex-direction: column;
+   line-height: 1.5;
+  font-size: 1.2rem;
+
+
+   /* padding:1rem */
+}
+
+.about-me h3{
+  color: var(--primary);
+  margin-bottom: 0.2rem;
+}
+
+.about-me p{
+  margin-bottom: 1rem;
+
 }
